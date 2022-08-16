@@ -1,0 +1,130 @@
+<!--20220815-->
+<!--developed by group 12 Jianren Gao-->
+<!--ver-1.0—__实现布局的设计-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EmtionRegersitor</title>
+        <meta utf-8>
+        <!--设计的布局样式-->
+        <style>
+            *{margin:0;padding: 0;}
+            .my_mode{
+                width:180px;
+                height:45px;
+                background: white;
+                position: relative;
+                left: 20px;
+                top: 30px;
+            }
+        </style>
+        <style>
+            *{margin:0;padding: 0;}
+            .my_button{
+                width:180px;
+                height:45px;
+                background: white;
+                position: relative;
+                left:10px;
+                bottom: 300px;
+            }
+        </style>
+        <style>
+            *{margin:0;padding: 0;}
+            .my_canvas{
+                width:800px;
+                height:500px;
+                background: white;
+                position: relative;
+                left:50px;
+                top: 150px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function selectImage(){
+                var c = document.getElementById("previewCanvas");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById('sun');
+                img.onload = function(){
+                    img.drawImgae(img, 1000, 100)
+                }
+            }
+            function changeImage(){
+                var c = document.getElementById("previewCanvas");
+                var ctx = c.getContext("2d");
+                var img = document.getElementById('selectedImage');
+                img.onload = function(){
+                    img.drawImgae(img, 1000, 100)
+                }
+            }
+            function dealSelectFiles(){
+                new_image = document.getElementById("selectedImage");
+                var reader = new FileReader();
+                reader.readAsDataURL(new_image);
+                reader.onload = function(){
+                    var img = new Image();
+                    img = document.getElementById("selectedImage");
+                    img.onload=function(){
+                        var previewCanvas = document.getElementById('previewCanvas');
+                        var ctx = previewCanvas.getContext("2d");
+                        ctx.drawImgae(img, 20, 20);
+                    }
+                }
+
+        }
+        </script>
+        <script>
+            var c = document.getElementById('resultCanvas');
+            var ctx = c.getContext('2d');
+            var img = document.getElementById('test_image');
+            img.onload=function(){
+                ctx.drawImgae(img, 10, 10);
+            }
+        </script>
+    </head>
+    <body>
+        <!--用容器将页面分割，实现初步布局-->
+        <!--最外层容器，包含其他容器-->
+        <div id="container" style="width:1920px">
+            <!--标题显示-->
+            <div id="header" style="background-color:#0FCEC8;">
+                <h1 style="margin-bottom:0 auto;">防脱发</h1>
+            </div>
+            <!--预览显示-->
+            <div id="preview" style="background-color:white;height:900px;width:920px;float:left;">
+                <!--Todo-->
+                    <!--模式选择-->
+                <select id="mode" class="my_mode">
+                    <option value = "" selected disabled hidden>模式选择</option>
+                    <option value="mode1">模式1</option>
+                    <option value="mode2">模式2</option>
+                    <option value="mode3">模式3</option>
+                </select>
+                <!--图片选择-->
+                <button type="button"class='my_button'>选择图片</button>
+                <img href="images/sun.gif"id="sun"alt="sun">
+                <!--图片预览-->
+                <input type="file"id="selectedImage"onchange="selectImage()">
+                <br>
+                <canvas id="previewCanvas"class="my_canvas"style="border:1px solid #000000;"></canvas>
+                <!--图片重选-->
+                <button type="button"class='my_butto' >重新选择</button>
+                <!--点击运行-->
+                <p1>something</p1>
+                
+            </div>
+            <!--结果显示-->
+            <div id="result" style="background-color:#EEEEEE;height:900px;width:1000px;float:left;">
+                <!--Todo-->
+                <img id="test_image" src="images/image1 (6).jpg"  width="100" height="100">
+                <canvas id="resultCanvas" class="my_canvas"style="border:1px solid #000000;"></canvas>
+            </div>
+            <!--版权显示-->
+            <div id="footer" style="background-color:#4a1e7e;clear:both;text-align:center;">
+                <h1>copyright-hair-loss-prevention</h1>
+            </div>
+        </div>
+    </body>
+</html>

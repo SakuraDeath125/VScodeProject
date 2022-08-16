@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </div>
+        
+    <div id="container" style="width:500px">
+
+        <div id="header" style="background-color:#FFA500;">
+        <h1 style="margin-bottom:0;">主要的网页标题</h1></div>
+        
+        <div id="menu" style="background-color:#FFD700;height:200px;width:200px;float:left;">
+        <b>菜单</b><br>
+        HTML<br>
+        CSS<br>
+</div>
+        
+        <div id="content" style="background-color:#EEEEEE;height:200px;width:300px;float:left;">
+        内容在这里</div>
+        
+        <div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+        版权 © runoob.com</div>
+    
+    </div>
+     
+        <script>
+            function changeImage(){
+                document.getElementById('old_image').src="images/image1 (2).jpg"
+            }
+        </script>
+    </head>
+    <body>
+        <h1>click and change image</h1>
+        <img src="images/image1 (1).jpg" id="old_image">
+        <button type="button"onclick="changeImage()">change</button>
+    </body>
+</html>
+
+
+<select id="mode">
+    <option value = "" selected disabled hidden>模式选择</option>
+    <option value="mode1">模式1</option>
+    <option value="mode2">模式2</option>
+    <option value="mode3">模式3</option>
+</select>
+
+<style>
+    *{margin: 0;padding: 0;}
+    .box{
+        width: 200px;
+        height: 100px;
+        background: blue;
+        position:absolute;/*绝对定位*/
+        right:200px;/*距离浏览器右边200px*/
+        bottom:20px;/*距离浏览器底部20px*/
+    }
+</style>
